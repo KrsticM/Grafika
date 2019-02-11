@@ -1,0 +1,32 @@
+﻿<Window x:Class="Transformations.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SharpGL WPF Application" Height="600" Width="800" 
+        xmlns:sharpGL="clr-namespace:SharpGL.WPF;assembly=SharpGL.WPF" KeyDown="Window_KeyDown">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="253*"/>
+            <ColumnDefinition Width="339*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- The OpenGL control provides a OpenGL drawing surface. -->
+        <sharpGL:OpenGLControl 
+            Name="openGLControl" OpenGLDraw="openGLControl_OpenGLDraw" 
+            OpenGLInitialized="openGLControl_OpenGLInitialized" Resized="openGLControl_Resized"
+            DrawFPS="True" RenderContextType="FBO" FrameRate="20" Margin="0,37,0,0" Grid.ColumnSpan="3"/>
+
+        <Slider HorizontalAlignment="Left" ValueChanged="Slider_ValueChanged" Margin="53,10,0,0" VerticalAlignment="Top" Height="22" Width="192" Grid.Column="1" Minimum="0" Maximum="360"/>
+        <Label Content="Rotiraj za:" HorizontalAlignment="Left" Margin="189,5,0,0" VerticalAlignment="Top" Height="32" Width="64" Grid.ColumnSpan="2"/>
+        <ComboBox HorizontalAlignment="Left" Margin="175,5,0,0" VerticalAlignment="Top" Width="136" Grid.Column="2" Height="26" SelectionChanged="ComboBox_SelectionChanged" >
+            <ComboBoxItem>Crvena</ComboBoxItem>
+            <ComboBoxItem>Plava</ComboBoxItem>
+            <ComboBoxItem>Bela</ComboBoxItem>
+        </ComboBox>
+        <Label Content="Ambijentalna boja:" HorizontalAlignment="Left" Margin="40,5,0,0" VerticalAlignment="Top" Width="135" Grid.Column="2"/>
+
+        <Button Content="Pomeri" Height="22" VerticalAlignment="Top" Margin="92,10,36,0" Click="Button_Click"/>
+        <TextBox Name="inputText" HorizontalAlignment="Left" Height="23" Margin="20,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="20,10,0,0" VerticalAlignment="Top" Width="144"/>
+    </Grid>
+</Window>
